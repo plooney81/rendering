@@ -9,8 +9,8 @@ function renderMovies(movies) {
         newMov += `
             <div class="col">
                 <div class="row justify-content-center">
-                    <img src='${movies[index].poster}' style=" width: 120px; height: auto; background-color: rbg(230, 230, 230);">
-                    <div class="d-flex flex-column rounded ml-1 p-1 align-items-start" style="background-color: rgb(220, 220, 220);">
+                    <img src='${movies[index].poster}' style=" width: 120px; height: auto;">
+                    <div class="d-flex flex-column rounded ml-1 p-1 align-items-start" style="background-color: rgb(240, 240, 240);">
                         <p class="font-weight-bold" style="margin: 0;">${movies[index].title}</p>
                         <p style="font-size: 14px;">${movies[index].year}</p>
                         <p style="font-size: 16px;">IMDB:<br>${imRating}</p>
