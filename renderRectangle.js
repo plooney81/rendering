@@ -1,8 +1,8 @@
 
 function renderRectangle(rectangle) {
     return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(rectangle)}</code>
+        <div class="text-center mt-5" style="display: flex; justify-content: center;">
+            <div style="width:${rectangle.width}px; height:${rectangle.height}px; background-color:${rectangle.color};"></div>
         </div>
     `
 }

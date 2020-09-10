@@ -1,10 +1,14 @@
 
 function renderCircles(circles) {
-    // HINT: You probably need to write a for loop!
-    //       Or, if you're feeling fancy, use .map() 
+    let circle = '';
+    for (let index = 0; index < circles.length; index++){
+        circle += `
+            <div style=" width: ${circles[index].radius}px; height: ${circles[index].radius}px; background-color: ${circles[index].color}; border-radius: ${circles[index].radius}px"></div>
+        `
+    }
     return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(circles)}</code>
+        <div class="text-center mt-5" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; height:200px">
+            ${circle}
         </div>
     `
 }
