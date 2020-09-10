@@ -1,8 +1,30 @@
 
 function renderMovies(movies) {
+    
+    let newMov = '';
+    for (let index = 0; index < movies.length; index++){
+        let imRating = `${movies[index].imdbRating}/10`; 
+        let rotRating = movies[index].rottenTomatoesRating * 100;
+
+        newMov += `
+            <div class="col">
+                <div class="row justify-content-center">
+                    <img src='${movies[index].poster}' style=" width: 120px; height: auto; background-color: rbg(230, 230, 230);">
+                    <div class="d-flex flex-column rounded ml-1 p-1 align-items-start" style="background-color: rgb(220, 220, 220);">
+                        <p class="font-weight-bold" style="margin: 0;">${movies[index].title}</p>
+                        <p style="font-size: 14px;">${movies[index].year}</p>
+                        <p style="font-size: 16px;">IMDB:<br>${imRating}</p>
+                        <p style="font-size: 16px;">Rotten Tomatoes:<br>${rotRating}%</p>
+                    </div>
+                </div>
+            </div>
+        `
+    }
+    
+    
     return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(movies)}</code>
+        <div class="text-center mt-5 row p-3 rounded" style="background-color: rgb(180, 180, 180);">
+            ${newMov}
         </div>
     `
 }
