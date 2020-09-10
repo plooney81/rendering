@@ -1,10 +1,21 @@
 
 function renderRestaurants(restaurants) {
-    // HINT: You can use <img /> tags that point to these playing card images: 
-    // https://commons.wikimedia.org/wiki/Category:SVG_playing_cards
+    let eachRest = '';
+    
+    for (let index = 0; index < restaurants.length; index++){
+        let dollarSigns = '$'.repeat(restaurants[index].priceRating);
+        eachRest += `
+            <div class="d-flex flex-column align-items-start mr-2 p-1 rounded" style="background-color: rgb(230, 230, 230); width: 150px;">
+                <div class="h4">${restaurants[index].name}</div>
+                <div style="color: grey;">${restaurants[index].type}</div>
+                <div style="color: green; font-weight: bold; font-size: 20px;">${dollarSigns}</div>
+            </div>
+        `
+    }
+
     return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(restaurants)}</code>
+        <div class="text-center mt-5 d-flex justify-content-center align-items-center">
+            ${eachRest}
         </div>
     `
 }
