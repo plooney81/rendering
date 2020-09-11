@@ -1,8 +1,54 @@
 
 function renderAlbums(albums) {
+    let newArtist = '';
+    for (let index = 0; index < albums.length; index++){
+        let newAlbum = '';
+        for (let albumIndex = 0; albumIndex < albums[index].albums.length; albumIndex++){
+            let newSong = '';
+            for (let songIndex = 0; songIndex < albums[index].albums[albumIndex].songs.length; songIndex++){
+                newSong += `
+                <div class="song">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="songTitle playButt d-flex pl-3">
+                            <img src="play-button.png" style="width: 30px; height: auto;">
+                            <p class="mt-1 pl-2" style="margin: 0;">${albums[index].albums[albumIndex].songs[songIndex].title}</p>
+                        </div>
+                        <div class="songLength mr-4">
+                            ${albums[index].albums[albumIndex].songs[songIndex].length}
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                `
+            }
+            newAlbum += `
+            <div class="mt-5">
+                <div class="row align-items-end">
+                    <img src="${albums[index].albums[albumIndex].albumCover}" 
+                        class="align-left pl-3 mr-3" 
+                        style="width: 100px; height: auto;">
+                    <p style="margin: 0; font-size: 20px;">${albums[index].albums[albumIndex].title}</p>
+                </div>
+                <hr>
+                ${newSong}
+            </div>
+            `
+        }
+        newArtist += `
+            <div class="artistCont col">
+                <div class="row">
+                    <p class="h1 pl-3">${albums[index].artist.toUpperCase()}</p>
+                </div>
+                <hr style="margin: 0 0 10px 0;">
+                ${newAlbum}
+            </div>
+        `;
+    }
+    
+
     return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(albums)}</code>
+        <div class="text-center mt-5 container">
+            ${newArtist}
         </div>
     `
 }
